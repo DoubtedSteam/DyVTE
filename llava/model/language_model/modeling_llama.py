@@ -977,7 +977,6 @@ class LlamaForCausalLM(LlamaPreTrainedModel):
             accuracy = correct.sum() / len(correct)
             correct = (gate_labels == 1).float()
             _accuracy = correct.sum() / len(correct)
-            self.exit_maneger.adjust_probability(exit_layer, accuracy.item(), _accuracy.item())
 
             if hidden_states.device == torch.device('cuda:0'):
 
