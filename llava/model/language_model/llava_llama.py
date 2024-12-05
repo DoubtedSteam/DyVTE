@@ -49,7 +49,6 @@ class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
         self.pretraining_tp = config.pretraining_tp
         self.vocab_size = config.vocab_size
         self.lm_head = nn.Linear(config.hidden_size, config.vocab_size, bias=False)
-        self.exit_maneger = ProbabilitySequence(config.num_hidden_layers)
 
         self.num = [[1 for _ in range(config.num_hidden_layers)] for _ in range(2)]
         self.acc = [[1 for _ in range(config.num_hidden_layers)] for _ in range(2)]
